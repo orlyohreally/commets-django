@@ -1,0 +1,121 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HoneyHunters</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-4.min.css' %}">
+	<link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
+	
+	<meta name="msapplication-TileColor" content="#362464">
+	<meta name="theme-color" content="#362464">
+</head>
+<body>
+	
+	<header class="container-fluid">
+		<div class="container">
+			<nav class="navbar navbar-dark bg-dark">
+				<a class="navbar-brand" href="/">
+					<img src="{% static 'assets/logo.png' %}" alt="logo honeyhunters">
+				</a>
+			</nav>
+		</div>
+	</header>
+	<section id="new_comment" class = "p-4">
+		<div class="container">
+			<div class = "row">
+				<div class = "col-12 text-center mb-5">
+					<img class = "form-img" src = "{% static 'assets/email-img.png' %}" />
+				</div>
+			</div>
+			<div class="form-row mb-3"><!--class="was-validated"--> 
+				<form id = "comment_form">{%csrf_token %}
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="col-12 mb-3">
+							  <label for="username" class = "required">Имя</label>
+							  <input type="text" class="form-control form-control-lg needs-validation" id="username" >
+							</div>
+							<div class="col-12 mb-3">
+							  <label for="email" class = "required">E-mail</label>
+							  <input type="text" class="form-control form-control-lg needs-validation validation-email" id="email" >
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="col-12 mb-3">
+							  <label for="comment" class = "required">Комментарий</label>
+							  <textarea class="form-control form-control-lg needs-validation" rows="5" id="comment" ></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class = "col-12 send-area">
+							<button id = "add_comment" type="submit" class="btn btn-primary pull-right">Записать</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section id="comments" class="container-fluid p-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center mb-5">
+					<h3>Выводим комментарии</h3>
+				</div>
+			</div>
+			<div class="row" id = "comment_list">
+					{% if comments|length %}
+						{% for comment in comments %}
+							<div class="col-12 col-md-4 mb-3">
+								<div class="card {% cycle 'card-1' 'card-2'%} ">
+									<div class="card-header text-center">
+										<h5>{{comment.username}}</h5>
+									</div>
+									<div class="card-body text-center pl-2 pr-2 pt-3 pb-4">
+										<h5 class="card-title pb-3">{{comment.email}}</h5>
+										<p class="card-text">{{comment.content}}</p>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<div class="col-12 text-center no-data">
+							<p>Комментарии еще не были добавлены</p>
+						</div>
+					{% endif %}
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">	
+			<div class="row">
+				<div class="col-12 col-md-6 p-2 text-center text-md-left">
+					<a class="navbar-brand" href="/">
+						<img src="{% static 'assets/logo-footer.png' %}" alt="logo honeyhunters">
+					</a>
+				</div>
+				<div class="col-12 col-md-3 offset-md-3 text-center text-md-right  p-2">
+					<a class="social" href="https://vk.com/obslyzhivaniesaitov">
+						<img src="{% static 'assets/vk.png' %}" alt="vk honeyhunters">
+					</a>
+					<a class="social" href="https://facebook.com/honeyhuntersmanagement/">
+						<img src="{% static 'assets/fb.png' %}" alt="facebook honeyhunters">
+					</a>
+				</div>
+			</div>
+			
+		</div>
+	</footer>
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}" charset="utf-8"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap-4.min.js' %}" charset="utf-8"></script>
+	<script type="text/javascript" src="{% static 'js/scripts.js' %}" charset="utf-8" ></script>
+	</script>
+</body>
+</html>

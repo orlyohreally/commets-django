@@ -1,0 +1,148 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+#comments {
+	background-color: #ffffff;
+}
+h3.display-3 {
+	font-family: 'Roboto medium';
+	/*font-size:  86px;*/
+	color: #37414e;
+}
+header {
+	background-color: #2d3136;
+}
+header .navbar-brand img {
+	width: 30%;
+	max-width: 200px;
+	height: auto;
+}
+
+/**************/
+/*Comment form*/
+/**************/
+#new_comment {
+	background-color: #2d3136;
+}
+.form-control {
+	color: #d7d7d7;
+	background-color: #2f3338;
+	border-color: #4c4f53;
+}
+.form-control:focus {
+	border-color: #be393b;
+	color: #ffffff;
+	background-color: #2f3338;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+textarea.form-control {
+	resize: none;
+}
+
+label {
+	color: #ffffff;
+}
+label.required:after {
+	content: '*';
+	color: #be393b;
+	font-weight: 500;
+	margin-left: 5px;
+}
+label[for="comment"], label[for="username"] {
+	font-weight: 500;
+}
+label[for="email"] {
+	font-weight: 700;
+}
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.btn-primary {
+	background: #be393b!important;
+	border-color: #be393b!important;
+	font-weight: 700;
+}
+.btn-primary , .btn-primary :focus {
+	background: #be393b!important;
+	border-color: #be393b!important;
+}
+.btn-primary:hover {
+	background: #be393b!important;
+	border-color: #be393b!important;
+	cursor: pointer;
+}
+.btn-primary.focus, .btn-primary:focus {
+    -webkit-box-shadow: 0 0 0 2px #be393b!important;
+    box-shadow: 0 0 0 2px #be393b!important;
+}
+.form-img {
+	width: 30%;
+	max-width: 150px;
+	height: auto;
+	display: inline-block;
+}
+/**************/
+/*Comment list*/
+/**************/
+.card-body h5, .card-header h5, .card-body p {
+	word-break: break-all;
+}
+.card-1 .card-header {
+	background-color: #4b596c;
+	color: #ffffff;
+}
+.card-2 .card-header {
+	background-color: #58ad52;
+	color: #ffffff;
+}
+.card-1 .card-body {
+	background-color: #e9eef3;
+	font-weight: 500;
+}
+.card-2 .card-body {
+	background-color: #deebde;
+	font-weight: 400;
+}
+.card-1 .card-title {
+	color: #6d737b;
+}
+.card-2 .card-title {
+	color: #58ad52;
+}
+/**************/
+/*Footer*/
+/**************/
+footer {
+	background-color: #2d3136;
+}
+footer .navbar-brand {
+	height: 50px;
+}
+footer .navbar-brand img {
+	height: 100%;
+	width: auto;
+}
+footer a {
+	display: inline-block;
+}
+footer .social {
+	width: 25px;
+	margin: 10px 10px 10px 0;
+}
+footer .social:last-child {
+	margin-right: 0;
+}
+footer .social img {
+	width: 100%;
+	height: auto;
+}
